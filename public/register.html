@@ -33,6 +33,16 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                         <div class="invalid-feedback">Please enter a valid email address.</div>
                     </div>
+                    <!-- Role Dropdown -->
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role:</label>
+                        <select class="form-select" id="role" name="role" required >
+                            <option value="" disabled selected class>Select your role</option>
+                            <option value="admin">Admin</option>
+                            <option value="employee">Employee</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a role.</div>
+                    </div>
                     <!-- Password Input -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>

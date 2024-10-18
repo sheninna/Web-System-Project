@@ -24,10 +24,22 @@
                    <div id="error-message" class="alert alert-danger d-none"></div>
 
                    <form id="loginForm" action="/login" method="POST" novalidate>
+                    <!-- Email -->
                        <div class="mb-3">
                            <label for="email" class="form-label">Email:</label>
                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                        </div>
+                    <!-- Role Dropdown -->
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role:</label>
+                        <select class="form-select" id="role" name="role" required >
+                            <option value="" disabled selected class>Select your role</option>
+                            <option value="admin">Admin</option>
+                            <option value="employee">Employee</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a role.</div>
+                    </div>
+                    <!-- Password -->
                        <div class="mb-3">
                            <label for="password" class="form-label">Password:</label>
                            <div class="input-group">

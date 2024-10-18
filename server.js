@@ -20,7 +20,8 @@ db.once('open', () => {
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
-    password: String
+    password: String,
+    role: String
 })
 const Users = mongoose.model('CMS', userSchema)
 
@@ -31,8 +32,8 @@ app.get('/', (req, res) => {
 
 // Handles registration form submissions
 app.post('/post', async (req, res) => {
-    const { name, email, password } = req.body
-    const user = new Users({ name, email, password })
+    const { name, email, password, role } = req.body
+    const user = new Users({ name, email, password,role })
     await user.save()
     console.log(user)
     res.sendFile(path.join(__dirname, 'public/login.html'))
@@ -40,7 +41,7 @@ app.post('/post', async (req, res) => {
 
 // Handles login form submissions with validation
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body
+    const { email, password,role } = req.body
     try {
         // Checks if the user exists in the database by email
         const user = await Users.findOne({ email })
@@ -57,6 +58,13 @@ app.post('/login', async (req, res) => {
             console.log('Incorrect password')
             return res.sendFile(path.join(__dirname, 'public/login.html'), {
                 error: 'Incorrect password. Please try again.'
+            })
+        }
+
+        if (user.role !== role) {
+            console.log('Incorrect role')
+            return res.sendFile(path.join(__dirname, 'public/login.html'), {
+                error: 'Incorrect role. Please try again.'
             })
         }
 
