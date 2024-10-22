@@ -41,42 +41,45 @@ app.post('/post', async (req, res) => {
 
 // Handles login form submissions with validation
 app.post('/login', async (req, res) => {
-    const { email, password,role } = req.body
+    const { email, password } = req.body;
     try {
         // Checks if the user exists in the database by email
-        const user = await Users.findOne({ email })
+        const user = await Users.findOne({ email });
         if (!user) {
             // If the email is not found, send an error message
-            console.log('Email not found')
+            console.log('Email not found');
             return res.sendFile(path.join(__dirname, 'public/login.html'), {
                 error: 'Email not found. Please register or try again.'
-            })
+            });
         }
 
         // Check if the password matches
-        if (user.password !== password) {
-            console.log('Incorrect password')
+        if (user.password !== password) {   
+            console.log('Incorrect password');
             return res.sendFile(path.join(__dirname, 'public/login.html'), {
                 error: 'Incorrect password. Please try again.'
-            })
+            });
         }
 
-        if (user.role !== role) {
-            console.log('Incorrect role')
+        // Check the user's role and redirect accordingly
+        if (user.role === 'admin') {
+            console.log('Admin login successful');
+            return res.sendFile(path.join(__dirname, 'public/cafe.html'));
+        } else if (user.role === 'employee') {
+            console.log('Employee login successful');
+            return res.sendFile(path.join(__dirname, 'public/employeego.html'));
+        } else {
+            console.log('Role not recognized');
             return res.sendFile(path.join(__dirname, 'public/login.html'), {
-                error: 'Incorrect role. Please try again.'
-            })
+                error: 'Invalid role. Please try again.'
+            });
         }
-
-        // If both email and password are correct, redirect to the main page
-        console.log('Login successful')
-        res.sendFile(path.join(__dirname, 'public/cafe.html'))
 
     } catch (err) {
-        console.log('Error during login:', err)
-        res.sendFile(path.join(__dirname, 'public/login.html'))
+        console.log('Error during login:', err);
+        res.sendFile(path.join(__dirname, 'public/login.html'));
     }
-})
+});
 
 
 // Start the server
