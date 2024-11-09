@@ -80,3 +80,54 @@ header {
     }
 }
 
+.bcontainer {
+    background-image: url('images/bg.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    margin: 0;
+}
+
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1200px; /* Increased the width of the container */
+    min-height: 400px; /* Ensures the container has more height */
+    background-color: #d6b290; /* Light brown background */
+    padding: 40px; /* Increased padding to create more space inside */
+    border-radius: 10px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for contrast */
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: left;
+    font-size: 1.1em; /* Increased font size for better readability */
+    color: #fff;
+}
+
+th {
+    font-weight: normal;
+    color: #f3f3f3;
+}
+
+tr:not(:last-child) td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+thead th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
