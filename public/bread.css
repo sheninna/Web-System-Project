@@ -80,83 +80,54 @@ header {
     }
 }
 
-
-#h1{
-    font-family: cursive;
+.bcontainer {
+    background-image: url('images/bg.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    margin: 0;
 }
 
-.container{
-    width: 80%;
-    height: 200%;
+.inventory-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1200px; /* Increased the width of the container */
+    min-height: 400px; /* Ensures the container has more height */
+    background-color: #d6b290; /* Light brown background */
+    padding: 40px; /* Increased padding to create more space inside */
+    border-radius: 10px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for contrast */
     text-align: center;
-    color:#fff;
-    margin-bottom: auto;
-    font-family: Copperplate;
-    font-size: 25px;
 }
 
 table {
-    border-collapse: collapse;
-    border-radius: 10px;
     width: 100%;
-    background-color: #C2976B;
-    padding: 20%;
-  }
-
-th{
-    font-size: 130%;
-}
-  
-td, th {
-    padding: 15px;
-    border-top: 1px solid #ddd;
-  }
-
-table th:first-child,
-table td:first-child {
-      border-left: none; 
-  }
-
-  table th:last-child,
-  table td:last-child {
-      border-right: none; 
-  }
-
-.add-employee {
-    position: absolute;
-    font-size: 25px;
-    color:#fff;
-    top: 130px;
-    right: 167px;
-    cursor: pointer;
+    border-collapse: collapse;
 }
 
-.form-container {
-    width: 78%;
-    background-color: #C2976B;
-    color:#fff;
-    padding: 3%;
-    margin-left: 11%;
-    border-radius: 10px;
-    margin-bottom: auto;
-}
-  
-input[type="text"] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 3px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-      
-.text{
-    font-size: 1.5rem;
+th, td {
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: left;
+    font-size: 1.1em; /* Increased font size for better readability */
+    color: #fff;
 }
 
-.add-button,
-.edit-button {
-    float: right
+th {
+    font-weight: normal;
+    color: #f3f3f3;
 }
 
+tr:not(:last-child) td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+thead th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
