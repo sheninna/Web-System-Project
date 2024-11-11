@@ -80,3 +80,83 @@ header {
     }
 }
 
+
+#h1{
+    font-family: cursive;
+}
+
+.container{
+    width: 80%;
+    height: 200%;
+    text-align: center;
+    color:#fff;
+    margin-bottom: auto;
+    font-family: Copperplate;
+    font-size: 25px;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #C2976B;
+    padding: 20%;
+  }
+
+th{
+    font-size: 130%;
+}
+  
+td, th {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+  }
+
+table th:first-child,
+table td:first-child {
+      border-left: none; 
+  }
+
+  table th:last-child,
+  table td:last-child {
+      border-right: none; 
+  }
+
+.add-employee {
+    position: absolute;
+    font-size: 25px;
+    color:#fff;
+    top: 130px;
+    right: 167px;
+    cursor: pointer;
+}
+
+.form-container {
+    width: 78%;
+    background-color: #C2976B;
+    color:#fff;
+    padding: 3%;
+    margin-left: 11%;
+    border-radius: 10px;
+    margin-bottom: auto;
+}
+  
+input[type="text"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 3px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+      
+.text{
+    font-size: 1.5rem;
+}
+
+.add-button,
+.edit-button {
+    float: right
+}
+

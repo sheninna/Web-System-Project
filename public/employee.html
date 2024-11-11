@@ -55,12 +55,85 @@
                 </span>
                 <span class="description">Employee Schedule</span>
             </a>
+            <a class="nav-link" href="login.html">            
+                <span class="icons">
+                    <i class="bi bi-box-arrow-right"></i>
+                </span>
+                <span class="description">Logout</span>
+            </a>
         </nav>
     </div>
 
     <main class="main-content">
-        <h2>Employees </h2>
-        <p>Ari ay testing</p>
+        <h1 class="mb-5">Employees</h1>
+        <div class="add-employee">
+            <a href="add-employee.html">
+                <span class="icons">
+                    <i class="bi bi-person-add"></i>
+                </span>
+                <span class="description"></span>
+            </a>
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">E Code</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">01</td>
+                        <td>Kenn Bayungan</td>
+                        <td>Manager</td>
+                        <td>
+                    <div>
+                        <a href="edit-employee.html">
+                        <span>
+                            <button class="btn btn-primary bi bi-pen"></button>
+                        </span>
+                        </a>
+                            <button class="btn bg-danger bi bi-trash"></button>
+                        </td>
+                    </tr>
+                </div>
+                    <tr>
+                        <td>02</td>
+                        <td>Sheninna Caisip</td>
+                        <td>Cashier</td>
+                        <td>
+                            <div>
+                                <a href="edit-employee.html">
+                                    <span>
+                                        <button class="btn btn-primary bi bi-pen"></button>
+                                    </span>
+                                    </a>
+                                        <button class="btn bg-danger bi bi-trash"></button>
+                                </td>
+                            </tr>
+                        </div>
+                    <tr>
+                        <td>03</td>
+                        <td>Christopher Macatangay</td>
+                        <td>Barista</td>
+                        <td>
+                            <div>
+                                <a href="edit-employee.html">
+                                    <span>
+                                        <button class="btn btn-primary bi bi-pen"></button>
+                                    </span>
+                                    </a>
+                                        <button class="btn bg-danger bi bi-trash"></button>
+                                </td>
+                            </tr>
+                        </div>
+                </tbody>
+            </table>
+    
+        </div>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
