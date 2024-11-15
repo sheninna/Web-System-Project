@@ -66,16 +66,17 @@
 
     <main class="main-content">
         <h1 class="mb-5">Update Employees</h1>
-        <div class="form-container">
-            <label class="text" for="bcode">B Code:</label>
-            <input type="text" id="bcode" name="bcode"><br><br>
-            <label class="text" for="name">Name:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label class="text" for="role">Role:</label>
-            <input type="text" id="role" name="role"><br><br>
+        <div class="form-container" id="edit-employee-form">
+            <label class="form-label" for="updateecode">E Code:</label>
+            <input type="text" id="updateecode" name="ecode" required><br><br>
+            <label class="form-label" for="updateemployeename">Name:</label>
+            <input type="text" id="updateemployeename" name="employeename" required><br><br>
+            <label class="form-label" for="updateemployeeposition">Position:</label>
+            <input type="text" id="updateemployeeposition" name="employeeposition" required><br><br>
             <div class="d-flex justify-content-end">
-            <button class="btn btn-primary" id="editButton">Update</button>
+            <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
             </div>
+            </form>
         </div>
     </main>
     

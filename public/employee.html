@@ -65,16 +65,16 @@
     </div>
 
     <main class="main-content">
-        <h1 class="mb-5">Employees</h1>
-        <div class="add-employee">
-            <a href="add-employee.html">
+        <h1 class="mb-5" id="main-title">Employees</h1>
+        <div class="add-employee" id="add-employees">
+            <a href="add-employee.html" class="btn btn-info">
                 <span class="icons">
                     <i class="bi bi-person-add"></i>
                 </span>
                 <span class="description"></span>
             </a>
         </div>
-        <div class="container">
+        <div class="container" id="employee-table-container">
             <table>
                 <thead>
                     <tr>
@@ -85,54 +85,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr id="employee-01">
                         <td scope="row">01</td>
                         <td>Kenn Bayungan</td>
                         <td>Manager</td>
                         <td>
                     <div>
-                        <a href="edit-employee.html">
+                        <a href="edit-employee.html" id="edit-employee-01">
                         <span>
                             <button class="btn btn-primary bi bi-pen"></button>
                         </span>
                         </a>
-                            <button class="btn bg-danger bi bi-trash"></button>
+                            <button class="btn bg-danger bi bi-trash" id="delete-employee-01"></button>
                         </td>
                     </tr>
                 </div>
-                    <tr>
+                    <tr id="employee-02">
                         <td>02</td>
                         <td>Sheninna Caisip</td>
                         <td>Cashier</td>
                         <td>
                             <div>
-                                <a href="edit-employee.html">
+                                <a href="edit-employee.html" id="edit-employee-02">
                                     <span>
                                         <button class="btn btn-primary bi bi-pen"></button>
                                     </span>
                                     </a>
-                                        <button class="btn bg-danger bi bi-trash"></button>
+                                        <button class="btn bg-danger bi bi-trash" id="delete-employee-02"></button>
                                 </td>
                             </tr>
                         </div>
-                    <tr>
+                    <tr id="employee-03">
                         <td>03</td>
                         <td>Christopher Macatangay</td>
                         <td>Barista</td>
                         <td>
                             <div>
-                                <a href="edit-employee.html">
+                                <a href="edit-employee.html" id="edit-employee-03">
                                     <span>
                                         <button class="btn btn-primary bi bi-pen"></button>
                                     </span>
                                     </a>
-                                        <button class="btn bg-danger bi bi-trash"></button>
+                                        <button class="btn bg-danger bi bi-trash" id="delete-employee-03"></button>
                                 </td>
                             </tr>
                         </div>
                 </tbody>
             </table>
-    
         </div>
     </main>
     

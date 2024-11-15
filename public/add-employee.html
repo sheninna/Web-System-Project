@@ -65,16 +65,16 @@
     </div>
 
     <main class="main-content">
-        <h1 class="mb-5">Add Employees</h1>
-        <div class="form-container">
-            <label class="text" for="bcode">B Code:</label>
-            <input type="text" id="bcode" name="bcode"><br><br>
-            <label class="text" for="name">Name:</label>
-            <input type="text" id="name" name="name"><br><br>
-            <label class="text" for="role">Role:</label>
-            <input type="text" id="role" name="role"><br><br>
+        <h1 class="mb-5" id="form-title">Add Employees</h1>
+        <div class="form-container" id="add-employee-form">
+            <label class="form-label" for="addecode">E Code:</label>
+            <input type="text" class="form-control" id="addecode" name="ecode" required><br><br>
+            <label class="form-label" for="addemployeename">Name:</label>
+            <input type="text" class="form-control" id="addemployeename" name="employeename" required><br><br>
+            <label class="form-label" for="addemployeeposition">Position:</label>
+            <input type="text" class="form-control" id="addemployeeposition" name="employeeposition" required><br><br>
             <div class="d-flex justify-content-end">
-            <button class="btn btn-primary" id="addButton">Add</button>
+            <button type="submit" class="btn btn-primary" id="addButton">Add</button>
             </div>
         </div>
 

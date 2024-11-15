@@ -65,75 +65,19 @@
     </div>
 
     <main class="main-content">
-        <h1 class="mb-5" id="schedule-title">Employees Schedule</h1>
-        <div class="add-employee" id="add-employeesched-form">
-            <a href="add-employeesched.html" class="btn btn-info">
-                <span class="icons">
-                    <i class="bi bi-person-add"></i>
-                </span>
-                <span class="description"></span>
-            </a>
+        <h1 class="mb-5">Update Employees</h1>
+        <div class="form-container" id="edit-employeesched-form">
+            <label class="form-label" for="updatename">Name:</label>
+            <input type="text" id="updatename" name="name" required><br><br>
+            <label class="form-label" for="updateposition">Position:</label>
+            <input type="text" id="updateposition" name="position" required><br><br>
+            <label class="form-label" for="updateshift">Shift:</label>
+            <input type="text" id="updateshift" name="shift" required><br><br>
+            <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary" id="updateButton">Update</button>
+            </div>
+            </form>
         </div>
-        <div class="container" id="employeesched-table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Shift</th>
-                        <th scope="col">Action</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="employeesched-01">
-                        <td scope="row">Kenn Bayungan</td>
-                        <td>Manager</td>
-                        <td>9 AM - 6 PM</td>
-                        <td>
-                            <div>
-                                <a href="edit-employeesched.html" id="edit-employeesched-01">
-                                <span>
-                                    <button class="btn btn-primary bi bi-pen"></button>
-                                </span>
-                                </a>
-                                    <button class="btn bg-danger bi bi-trash" id="delete-employeesched-01"></button>
-                                </td>
-                            </tr>
-                        </div>
-                    <tr id="employeesched-02">
-                        <td scope="row">Sheninna Caisip</td>
-                        <td>Cashier</td>
-                        <td>8 AM - 5 PM</td>
-                        <td>
-                            <div>
-                                <a href="edit-employeesched.html" id="edit-employeesched-02">
-                                <span>
-                                    <button class="btn btn-primary bi bi-pen"></button>
-                                </span>
-                                </a>
-                                    <button class="btn bg-danger bi bi-trash" id="delete-employeesched-02"></button>
-                                </td>
-                            </tr>
-                        </div>
-                    <tr id="employeesched-03">
-                        <td scope="row">Christopher Macatangay</td>
-                        <td>Barista</td>
-                        <td>8 AM - 5 PM</td>
-                        <td>
-                            <div>
-                                <a href="edit-employeesched.html" id="edit-employeesched-03">
-                                <span>
-                                    <button class="btn btn-primary bi bi-pen"></button>
-                                </span>
-                                </a>
-                                    <button class="btn bg-danger bi bi-trash" id="delete-employeesched-03"></button>
-                                </td>
-                            </tr>
-                        </div>
-                </tbody>
-            </table>
-       </div>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
