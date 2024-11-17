@@ -10,7 +10,7 @@ const app = express();
 connectDB();
 
 // Middleware for parsing form data and serving static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
