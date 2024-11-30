@@ -1,6 +1,7 @@
 const menu = document.querySelector('tbody');
 
 // Fetch all pastry data from the server
+
 const getData = async () => {
     try {
         const response = await fetch("http://localhost:5050/api/pastry");  
@@ -8,11 +9,14 @@ const getData = async () => {
         return result;
     } catch (err) {
         console.error("Failed to fetch data:", err);
+
     }
 };
 
 // Create a row for each pastry entry
+
 const createRow = (pastry, index) => { 
+
     const tr = document.createElement('tr');
 
     const noTd = document.createElement('td');
@@ -22,8 +26,8 @@ const createRow = (pastry, index) => {
     const actionTd = document.createElement('td');
 
     // Use the index for the "No." column
-    noTd.innerText = index + 1; 
 
+    noTd.innerText = index + 1; 
     codeTd.innerText = pastry.pcode;
     nameTd.innerText = pastry.pastryname;
     stockTd.innerText = pastry.stocks;
@@ -49,12 +53,15 @@ const createRow = (pastry, index) => {
 
     actionTd.append(editButton, deleteButton, restockButton);
 
+
     tr.append(noTd, codeTd, nameTd, stockTd, actionTd);
     return tr;
 };
 
 // Populate the form with data to edit
+
 const populateEditForm = (pastry) => {
+
     document.getElementById('editPastryCode').value = pastry.pcode;
     document.getElementById('editPastryName').value = pastry.pastryname;
     document.getElementById('editPastryStock').value = pastry.stocks;
@@ -128,6 +135,7 @@ document.getElementById('addPastryForm').onsubmit = async (e) => {
     };
 
     try {
+
         const response = await fetch("http://localhost:5050/api/pastry", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -136,7 +144,9 @@ document.getElementById('addPastryForm').onsubmit = async (e) => {
 
         if (response.ok) {
             alert("Pastry added successfully.");
+
             window.location.reload();
+
         } else {
             console.error("Failed to add pastry:", await response.text());
         }
@@ -159,6 +169,7 @@ document.getElementById('editPastryForm').onsubmit = async (e) => {
 
     try {
         const response = await fetch(`http://localhost:5050/api/pastry/${pcode}`, {
+
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedPastry),
@@ -176,11 +187,13 @@ document.getElementById('editPastryForm').onsubmit = async (e) => {
 };
 
 // Load pastry data and display it
+
 getData()
     .then((pastries) => {
         if (pastries) {
             pastries.forEach((pastry, index) => {
                 menu.append(createRow(pastry, index));
+
             });
         }
     })

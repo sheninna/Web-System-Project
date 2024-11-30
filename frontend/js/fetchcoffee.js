@@ -1,6 +1,7 @@
 const menu = document.querySelector('tbody');
 
 // Fetch all coffee data from the server
+
 const getData = async () => {
     try {
         const response = await fetch("http://localhost:5050/api/coffee");  
@@ -13,6 +14,7 @@ const getData = async () => {
 
 // Create a row for each coffee ingredient entry
 const createRow = (coffee, index) => { 
+
     const tr = document.createElement('tr');
 
     const noTd = document.createElement('td');
@@ -22,7 +24,9 @@ const createRow = (coffee, index) => {
     const actionTd = document.createElement('td');
 
     // Use the index for the "No." column
+
     noTd.innerText = index + 1; 
+
 
     codeTd.innerText = coffee.ccode;
     nameTd.innerText = coffee.coffeename;
@@ -30,6 +34,7 @@ const createRow = (coffee, index) => {
 
     const editButton = document.createElement('button');
     const deleteButton = document.createElement('button');
+
     const restockButton = document.createElement('button');
 
     editButton.classList.add('btn', 'btn-primary', 'bi', 'bi-box-arrow-down');
@@ -40,6 +45,7 @@ const createRow = (coffee, index) => {
     deleteButton.classList.add('btn', 'btn-danger', 'bi', 'bi-trash');
     deleteButton.setAttribute('data-bs-toggle', 'modal');
     deleteButton.setAttribute('data-bs-target', '#deleteCoffeeModal');
+
     deleteButton.onclick = () => confirmDelete(coffee.ccode);  
 
     restockButton.classList.add('btn', 'btn-warning', 'bi', 'bi-arrow-up-square');
@@ -49,12 +55,15 @@ const createRow = (coffee, index) => {
 
     actionTd.append(editButton, deleteButton, restockButton);
 
+
     tr.append(noTd, codeTd, nameTd, stockTd, actionTd);
     return tr;
 };
 
 // Populate the form with data to edit
+
 const populateEditForm = (coffee) => {
+
     document.getElementById('editCoffeeCode').value = coffee.ccode;
     document.getElementById('editCoffeeName').value = coffee.coffeename;
     document.getElementById('editCoffeeStock').value = coffee.stocks;
@@ -107,6 +116,7 @@ const confirmDelete = (ccode) => {
             const response = await fetch(`http://localhost:5050/api/coffee/${ccode}`, { method: 'DELETE' });
             if (response.ok) {
                 alert("Coffee ingredient deleted successfully.");
+
                 window.location.reload();
             } else {
                 console.error("Failed to delete coffee:", await response.text());
@@ -117,7 +127,9 @@ const confirmDelete = (ccode) => {
     };
 };
 
+
 // Add new coffee ingredient functionality
+
 document.getElementById('addCoffeeForm').onsubmit = async (e) => {
     e.preventDefault();
 
@@ -128,14 +140,18 @@ document.getElementById('addCoffeeForm').onsubmit = async (e) => {
     };
 
     try {
+
         const response = await fetch("http://localhost:5050/api/coffee", {
+
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newCoffee),
         });
 
         if (response.ok) {
+
             alert("Coffee ingredient added successfully.");
+
             window.location.reload();
         } else {
             console.error("Failed to add coffee:", await response.text());
@@ -145,7 +161,9 @@ document.getElementById('addCoffeeForm').onsubmit = async (e) => {
     }
 };
 
+
 // Edit coffee ingredient functionality
+
 document.getElementById('editCoffeeForm').onsubmit = async (e) => {
     e.preventDefault();
 
@@ -155,17 +173,21 @@ document.getElementById('editCoffeeForm').onsubmit = async (e) => {
         stocks: document.getElementById('editCoffeeStock').value,
     };
 
+
     const ccode = updatedCoffee.ccode;
 
     try {
         const response = await fetch(`http://localhost:5050/api/coffee/${ccode}`, {
+
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedCoffee),
         });
 
         if (response.ok) {
+
             alert("Coffee ingredient updated successfully.");
+
             window.location.reload();
         } else {
             console.error("Failed to update coffee:", await response.text());
@@ -176,14 +198,17 @@ document.getElementById('editCoffeeForm').onsubmit = async (e) => {
 };
 
 // Load coffee data and display it
+
 getData()
     .then((coffees) => {
         if (coffees) {
             coffees.forEach((coffee, index) => {
                 menu.append(createRow(coffee, index));
+
             });
         }
     })
     .catch((err) => {
+
         console.error("Error loading coffee ingredients:", err);
     });

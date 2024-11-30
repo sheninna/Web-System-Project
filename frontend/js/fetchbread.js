@@ -3,7 +3,9 @@ const menu = document.querySelector('tbody');
 // Fetch all bread data from the server
 const getData = async () => {
     try {
+
         const response = await fetch("http://localhost:5050/api/bread");  
+
         const result = await response.json();
         return result;
     } catch (err) {
@@ -11,8 +13,9 @@ const getData = async () => {
     }
 };
 
-// Create a row for each bread entry
+
 const createRow = (bread, index) => {
+
     const tr = document.createElement('tr');
 
     const noTd = document.createElement('td');
@@ -22,7 +25,9 @@ const createRow = (bread, index) => {
     const actionTd = document.createElement('td');
 
     // Use the index for the "No." column
+
     noTd.innerText = index + 1; 
+
 
     codeTd.innerText = bread.bcode;
     nameTd.innerText = bread.breadname;
@@ -30,9 +35,11 @@ const createRow = (bread, index) => {
 
     const editButton = document.createElement('button');
     const deleteButton = document.createElement('button');
+
     const restockButton = document.createElement('button');
 
     editButton.classList.add('btn', 'btn-primary', 'bi', 'bi-box-arrow-down');
+
     editButton.setAttribute('data-bs-toggle', 'modal');
     editButton.setAttribute('data-bs-target', '#editBreadModal');
     editButton.onclick = () => populateEditForm(bread);
@@ -40,6 +47,7 @@ const createRow = (bread, index) => {
     deleteButton.classList.add('btn', 'btn-danger', 'bi', 'bi-trash');
     deleteButton.setAttribute('data-bs-toggle', 'modal');
     deleteButton.setAttribute('data-bs-target', '#deleteBreadModal');
+
     deleteButton.onclick = () => confirmDelete(bread.bcode);  
 
     restockButton.classList.add('btn', 'btn-warning', 'bi', 'bi-arrow-up-square');
@@ -48,6 +56,7 @@ const createRow = (bread, index) => {
     restockButton.onclick = () => setRestockData(bread.bcode, bread.breadname);
 
     actionTd.append(editButton, deleteButton, restockButton);
+
 
     tr.append(noTd, codeTd, nameTd, stockTd, actionTd);
     return tr;
@@ -100,12 +109,16 @@ document.getElementById('restockForm').onsubmit = async (e) => {
 };
 
 
+
 // Handle deletion confirmation
 const confirmDelete = (bcode) => {
     const deleteButton = document.querySelector('#deleteBreadModal .btn-danger');
     deleteButton.onclick = async () => {
         try {
+
             const response = await fetch(`http://localhost:5050/api/bread/${bcode}`, { method: 'DELETE' });
+
+
             if (response.ok) {
                 alert("Bread deleted successfully.");
                 window.location.reload();
@@ -129,7 +142,9 @@ document.getElementById('addBreadForm').onsubmit = async (e) => {
     };
 
     try {
+
         const response = await fetch("http://localhost:5050/api/bread", {
+
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newBread),
@@ -156,10 +171,12 @@ document.getElementById('editBreadForm').onsubmit = async (e) => {
         stocks: document.getElementById('editBreadStock').value,
     };
 
+
     const bcode = updatedBread.bcode;
 
     try {
         const response = await fetch(`http://localhost:5050/api/bread/${bcode}`, {
+
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedBread),
@@ -180,7 +197,9 @@ document.getElementById('editBreadForm').onsubmit = async (e) => {
 getData()
     .then((breads) => {
         if (breads) {
+
             breads.forEach((bread, index) => {
+
                 menu.append(createRow(bread, index));
             });
         }
